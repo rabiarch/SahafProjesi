@@ -1,0 +1,108 @@
+﻿@model IEnumerable<SahafProjesi.Models.Kitap>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kitaplar</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Kitap Ekle</a>
+</p>
+
+
+<p>
+    <a class="btn btn-secondary" asp-action="SonEklenenler">Son 10 Kitap</a>
+</p>
+
+<hr />
+
+<div>
+    <b>Filtrele</b>
+</div>
+
+<div>
+    <form asp-action="Index" method="get">
+        <label>Min Fiyat: </label>
+        <input type="number" name="minFiyat" value=""/>
+
+        <label>Max Fiyat: </label>
+        <input type="number" name="maxFiyat" value=""/> 
+
+        <input class="btn btn-dark" type="submit" value="Filtrele">
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KitapAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasimYili)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaskiSayisi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KitapOzeti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KapakResmi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yazar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yayinevi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KitapAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasimYili)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaskiSayisi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KitapOzeti)
+            </td>
+            <td>
+                <img src="/images/@item.KapakResmi" alt="Kapak Resmi" style="width:100px; height:auto;" />               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yazar.YazarAdi)
+                @Html.DisplayFor(modelItem => item.Yazar.YazarSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yayinevi.YayineviAdi)
+            </td>
+            <td class="btn-group-vertical">
+                <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.KitapID">Düzenle</a> <br />
+                <a asp-action="Details" class="btn btn-outline-secondary" asp-route-id="@item.KitapID">Detaylar</a> <br />
+                <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.KitapID">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

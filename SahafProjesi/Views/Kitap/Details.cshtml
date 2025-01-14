@@ -1,0 +1,73 @@
+﻿@model SahafProjesi.Models.Kitap
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Kitaplar</h1>
+
+<div>
+    <h4>Kitap Detayları</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KitapAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KitapAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BasimYili)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BasimYili)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BaskiSayisi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BaskiSayisi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KitapOzeti)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KitapOzeti)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KapakResmi)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="/images/@Model.KapakResmi" alt="Kapak Resmi" style="width:100px; height:auto;" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yazar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yazar.YazarAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kategori)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kategori.KategoriAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yayinevi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yayinevi.YayineviAdi)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-action="Edit" class="btn btn-primary"  asp-route-id="@Model?.KitapID">Düzenle</a> |
+    <a asp-action="Index" class="btn btn-primary">Geri Dön</a>
+</div>

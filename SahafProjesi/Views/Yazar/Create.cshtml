@@ -1,0 +1,40 @@
+﻿@model SahafProjesi.Models.Yazar
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Yazar</h1>
+
+<h4>Yazar Ekle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="YazarAdi" class="control-label">Yazar Adı</label>
+                <input asp-for="YazarAdi" class="form-control" />
+                <span asp-validation-for="YazarAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YazarSoyadi" class="control-label">Yazar Soyadı</label>
+                <input asp-for="YazarSoyadi" class="form-control" />
+                <span asp-validation-for="YazarSoyadi" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+@* <div>
+    <a asp-action="Index" class="btn btn-primary" >Geri Dön</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,27 @@
+﻿@model SahafProjesi.Models.Yayinevi
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Yayınevi</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Yayınevi Sil</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.YayineviAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.YayineviAdi)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="YayineviID" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary" >Geri Dön</a>
+    </form>
+</div>

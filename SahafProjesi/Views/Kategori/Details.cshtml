@@ -1,0 +1,25 @@
+﻿@model SahafProjesi.Models.Kategori
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Kategori</h1>
+
+<div>
+    <h4>Kategori Detayları</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriAdi)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.KategoriID">Düzenle</a> |
+    <a asp-action="Index" class="btn btn-primary">Geri Dön</a>
+</div>

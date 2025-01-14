@@ -1,0 +1,19 @@
+﻿@*
+    Biz bunu butonların işlemlerini kontrol etmek için ekledik.
+*@
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+@{
+    int? id = Accessor.HttpContext.Session.GetInt32("kullaniciId");
+}
+
+@if (id.HasValue)  //ıd varsa çıkış yapma tuşunu göstersin.
+{
+    <a asp-controller="Login" asp-action="Logout" class="btn btn-success"> Logout </a>
+}
+else //id yoksa da giriş yap kısmını göstersin.
+{
+    <a asp-controller="Login" asp-action="Index" class="btn btn-success"> Login </a>
+}

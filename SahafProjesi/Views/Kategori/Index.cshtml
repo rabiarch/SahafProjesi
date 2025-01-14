@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SahafProjesi.Models.Kategori>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kategoriler</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Kategori Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Kategori Adı
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+@foreach (var item in Model) {
+        <tr>
+            <td>
+               <a asp-controller="Kategori" asp-action="Kitaplar" asp-route-id="@item.KategoriID" class="btn btn-dark"> @Html.DisplayFor(modelItem => item.KategoriAdi) </a>
+
+            </td>
+            <td>
+                <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.KategoriID">Düzenle</a> |
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.KategoriID">Detaylar</a> |
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.KategoriID">Sil</a>
+            </td>
+        </tr>
+}
+
+        
+    </tbody>
+</table>

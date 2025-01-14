@@ -1,0 +1,18 @@
+﻿@using SahafProjesi.Models.ViewModels
+@model Login_VM
+
+
+
+<form method="post">
+    <div asp-validation-summary="All"></div>  @* Aldığımız hatanın ne olduğunu öğrenmek için yazdık. *@
+    <div class="mb-3">
+        <label asp-for="KullaniciAdi" class="form-label">Kullanıcı Adı</label>
+        <input type="text" class="form-control" name="kullaniciAdi" asp-for="KullaniciAdi">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Sifre" class="form-label">Şifre</label>
+        <input type="password" class="form-control" name="sifre" asp-for="Sifre">
+    </div>
+    <button type="submit" class="btn btn-primary">Giriş</button>
+</form>
+

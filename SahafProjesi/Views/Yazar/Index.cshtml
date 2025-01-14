@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SahafProjesi.Models.Yazar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Yazarlar</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Yazar Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.YazarAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YazarSoyadi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-controller="Yazar" asp-action="Kitaplar" asp-route-id="@item.YazarID" class="btn btn-dark"> @Html.DisplayFor(modelItem => item.YazarAdi) </a>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YazarSoyadi)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.YazarID">Düzenle</a> |
+                    <a asp-action="Details" class="btn btn-outline-secondary" asp-route-id="@item.YazarID">Detaylar</a> |
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.YazarID">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

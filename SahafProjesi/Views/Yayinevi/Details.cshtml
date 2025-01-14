@@ -1,0 +1,25 @@
+﻿@model SahafProjesi.Models.Yayinevi
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Yayınevi</h1>
+
+<div>
+    <h4>Yayinevi Detayları</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.YayineviAdi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.YayineviAdi)
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.YayineviID">Düzenle</a> |
+    <a asp-action="Index" class="btn btn-primary">Geri Dön</a>
+</div>

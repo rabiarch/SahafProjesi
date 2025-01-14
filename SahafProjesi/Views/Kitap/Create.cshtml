@@ -1,0 +1,75 @@
+﻿@using SahafProjesi.Models.ViewModels
+@model KitapEklemeEkrani_VM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Kitaplar</h1>
+
+<h4>Kitap Ekleme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @* enctype="multipart/form-data" //bunu yapmazsak file formatında olan kısımlar çalışmaz yani dosya yükleyemeyiz. O yüzden bunu yapmak zorundayız. *@
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Kitap.KitapAdi" class="control-label">Kitap Adı</label>
+                <input asp-for="Kitap.KitapAdi" class="form-control" />
+                <span asp-validation-for="Kitap.KitapAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.Fiyat" class="control-label">Fiyat</label>
+                <input asp-for="Kitap.Fiyat" class="form-control" />
+                <span asp-validation-for="Kitap.Fiyat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.BasimYili" class="control-label">Basım Yılı</label>
+                <input asp-for="Kitap.BasimYili" class="form-control" />
+                <span asp-validation-for="Kitap.BasimYili" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.BaskiSayisi" class="control-label">Baskı Sayısı</label>
+                <input asp-for="Kitap.BaskiSayisi" class="form-control" />
+                <span asp-validation-for="Kitap.BaskiSayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.KitapOzeti" class="control-label">Kitap Özeti</label>
+                <input asp-for="Kitap.KitapOzeti" class="form-control" />
+                <span asp-validation-for="Kitap.KitapOzeti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.KapakResmi" class="control-label">Kapak Resmi</label>
+                @* Burada da input type ı değiştirmemzi gerekiyor. Yoksa dosya yükleme çalışmaz. *@
+                <input type="file" asp-for="Kitap.KapakResmi" class="form-control" />
+                <span asp-validation-for="Kitap.KapakResmi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.YazarID" class="control-label">Yazar Adı</label>
+                <select asp-for="Kitap.YazarID" class ="form-control" asp-items="@Model.Yazarlar"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.KategoriID" class="control-label">Kategori Adı</label>
+                <select asp-for="Kitap.KategoriID" class ="form-control" asp-items="@Model.Kategoriler"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap.YayineviID" class="control-label">Yayınevi Adı</label>
+                <select asp-for="Kitap.YayineviID" class ="form-control" asp-items="@Model.Yayinevleri"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+@* <div>
+    <a asp-action="Index" class="btn btn-primary" >Geri Dön</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
