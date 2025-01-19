@@ -50,9 +50,5 @@ Teşekkürler
 
 Bu projeyi inceleyen ve geliştirilmesine katkı sağlayan herkese teşekkür ederim. 😊
 
-Lisans
-
-Bu proje herhangi bir lisans altında değildir.
-
 Sorularınız için iletişim: [r.unall@outlook.com]
 
